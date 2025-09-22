@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LiveLearnDo — Needs Survey</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+  <h1 class="logo"><span>LIVE</span><span>LEARN</span><span>DO</span></h1>
+  <p style="text-align:center">Rate each need from 1 (not met) to 5 (fully met).</p>
+  <form id="surveyForm">
+<div class='need'><h3>Connection</h3><div class='scale'><label><input type='radio' name='connection' value='1'>1</label><label><input type='radio' name='connection' value='2'>2</label><label><input type='radio' name='connection' value='3'>3</label><label><input type='radio' name='connection' value='4'>4</label><label><input type='radio' name='connection' value='5'>5</label></div></div><div class='need'><h3>Respect</h3><div class='scale'><label><input type='radio' name='respect' value='1'>1</label><label><input type='radio' name='respect' value='2'>2</label><label><input type='radio' name='respect' value='3'>3</label><label><input type='radio' name='respect' value='4'>4</label><label><input type='radio' name='respect' value='5'>5</label></div></div><div class='need'><h3>Understanding</h3><div class='scale'><label><input type='radio' name='understanding' value='1'>1</label><label><input type='radio' name='understanding' value='2'>2</label><label><input type='radio' name='understanding' value='3'>3</label><label><input type='radio' name='understanding' value='4'>4</label><label><input type='radio' name='understanding' value='5'>5</label></div></div><div class='need'><h3>Safety</h3><div class='scale'><label><input type='radio' name='safety' value='1'>1</label><label><input type='radio' name='safety' value='2'>2</label><label><input type='radio' name='safety' value='3'>3</label><label><input type='radio' name='safety' value='4'>4</label><label><input type='radio' name='safety' value='5'>5</label></div></div><div class='need'><h3>Trust</h3><div class='scale'><label><input type='radio' name='trust' value='1'>1</label><label><input type='radio' name='trust' value='2'>2</label><label><input type='radio' name='trust' value='3'>3</label><label><input type='radio' name='trust' value='4'>4</label><label><input type='radio' name='trust' value='5'>5</label></div></div><div class='need'><h3>Autonomy</h3><div class='scale'><label><input type='radio' name='autonomy' value='1'>1</label><label><input type='radio' name='autonomy' value='2'>2</label><label><input type='radio' name='autonomy' value='3'>3</label><label><input type='radio' name='autonomy' value='4'>4</label><label><input type='radio' name='autonomy' value='5'>5</label></div></div><div class='need'><h3>Love</h3><div class='scale'><label><input type='radio' name='love' value='1'>1</label><label><input type='radio' name='love' value='2'>2</label><label><input type='radio' name='love' value='3'>3</label><label><input type='radio' name='love' value='4'>4</label><label><input type='radio' name='love' value='5'>5</label></div></div><div class='need'><h3>Belonging</h3><div class='scale'><label><input type='radio' name='belonging' value='1'>1</label><label><input type='radio' name='belonging' value='2'>2</label><label><input type='radio' name='belonging' value='3'>3</label><label><input type='radio' name='belonging' value='4'>4</label><label><input type='radio' name='belonging' value='5'>5</label></div></div><div class='need'><h3>Growth</h3><div class='scale'><label><input type='radio' name='growth' value='1'>1</label><label><input type='radio' name='growth' value='2'>2</label><label><input type='radio' name='growth' value='3'>3</label><label><input type='radio' name='growth' value='4'>4</label><label><input type='radio' name='growth' value='5'>5</label></div></div><div class='need'><h3>Contribution</h3><div class='scale'><label><input type='radio' name='contribution' value='1'>1</label><label><input type='radio' name='contribution' value='2'>2</label><label><input type='radio' name='contribution' value='3'>3</label><label><input type='radio' name='contribution' value='4'>4</label><label><input type='radio' name='contribution' value='5'>5</label></div></div><div class='need'><h3>Purpose/Meaning</h3><div class='scale'><label><input type='radio' name='purpose-meaning' value='1'>1</label><label><input type='radio' name='purpose-meaning' value='2'>2</label><label><input type='radio' name='purpose-meaning' value='3'>3</label><label><input type='radio' name='purpose-meaning' value='4'>4</label><label><input type='radio' name='purpose-meaning' value='5'>5</label></div></div><div class='need'><h3>Play/Rest</h3><div class='scale'><label><input type='radio' name='play-rest' value='1'>1</label><label><input type='radio' name='play-rest' value='2'>2</label><label><input type='radio' name='play-rest' value='3'>3</label><label><input type='radio' name='play-rest' value='4'>4</label><label><input type='radio' name='play-rest' value='5'>5</label></div></div>
+    <div style="text-align:center">
+      <button type="submit">See My Summary</button>
+      <a class="button secondary" href="index.html">Back to Home</a>
+    </div>
+  </form>
+  <div id="result" class="notice" style="display:none"></div>
+</div>
+<footer>© <span id="y"></span> LiveLearnDo</footer>
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+const form=document.getElementById('surveyForm'); const result=document.getElementById('result');
+form.addEventListener('submit',e=>{
+ e.preventDefault();
+ const data={}; let missing=[];
+ new FormData(form).forEach((v,k)=>data[k]=Number(v));
+ form.querySelectorAll('.need').forEach(sec=>{
+   const nm=sec.querySelector('input').name; if(!data[nm]) missing.push(nm);
+ });
+ if(missing.length){result.style.display='block';result.innerHTML='Please rate all needs.';return;}
+ const entries=Object.entries(data).map(([k,v])=>({need:k.replaceAll('_',' '),score:v})).sort((a,b)=>a.score-b.score);
+ const lowest=entries.filter(e=>e.score<=3).slice(0,5);
+ let html='<div class="success"><strong>Summary saved.</strong></div><ol>';
+ if(!lowest.length){html+='<li>All needs rated high — great job!</li>';} 
+ else {lowest.forEach(e=>html+=`<li>${e.need}: ${e.score}/5</li>`);}
+ html+='</ol>'; result.className='notice success'; result.style.display='block'; result.innerHTML=html; result.scrollIntoView({behavior:'smooth'});
+});
+</script>
+</body>
+</html>
