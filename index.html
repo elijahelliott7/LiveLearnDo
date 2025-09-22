@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LiveLearnDo — Coming Soon</title>
+  <meta name="description" content="LiveLearnDo — tools, guides, and coaching to help you live with intention, learn continuously, and do what matters. Launching soon." />
+  <meta property="og:title" content="LiveLearnDo — Coming Soon" />
+  <meta property="og:description" content="LiveLearnDo — tools, guides, and coaching to help you live with intention, learn continuously, and do what matters. Launching soon." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://livelearndo.org/" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🟢</text></svg>">
+  <style>
+    :root {
+      --bg: #0b1320;
+      --card: #121a2b;
+      --text: #e6eaf2;
+      --muted: #98a2b3;
+      --accent: #4ade80; /* green */
+      --accent-2: #60a5fa; /* blue */
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 10% 0%, rgba(96,165,250,0.15), transparent 60%),
+                  radial-gradient(1000px 500px at 90% 100%, rgba(74,222,128,0.14), transparent 60%),
+                  var(--bg);
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+    .card {
+      width: min(780px, 92vw);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: clamp(20px, 6vw, 40px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      backdrop-filter: blur(6px);
+    }
+    .logo {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-weight: 800; letter-spacing: 0.2px; text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .logo .mark {
+      width: 40px; height: 40px; border-radius: 12px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #0b1320; font-weight: 900;
+    }
+    h1 {
+      margin: 18px 0 8px;
+      font-size: clamp(28px, 5vw, 40px);
+      line-height: 1.1;
+    }
+    p.lead {
+      margin: 0 0 22px;
+      font-size: clamp(16px, 2.6vw, 18px);
+      color: var(--muted);
+    }
+    .row { display: grid; gap: 14px; grid-template-columns: 1fr; }
+    @media (min-width: 560px) { .row { grid-template-columns: 1fr auto; } }
+    input, button {
+      font: inherit;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    input {
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      outline: none;
+      width: 100%;
+    }
+    input::placeholder { color: #b9c0cc; }
+    button {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #0b1320;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      min-width: 160px;
+    }
+    .meta { margin-top: 18px; display: flex; gap: 14px; flex-wrap: wrap; color: var(--muted); font-size: 14px; }
+    .meta a { color: var(--text); opacity: 0.9; }
+    footer { margin-top: 26px; color: var(--muted); font-size: 12px; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 12px; border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-labelledby="title">
+    <a class="logo" href="#" aria-label="LiveLearnDo">
+      <span class="mark">LLD</span>
+      <span>Live<span style="color:var(--accent)">Learn</span>Do</span>
+    </a>
+
+    <h1 id="title">We’re building something useful.</h1>
+    <p class="lead">
+      LiveLearnDo is a practical hub for living with intention, learning continuously, and doing what matters.
+      We’re crafting guides, tools, and coaching resources — launching soon.
+    </p>
+
+    <!-- Email capture (no backend required). Replace the 'action' with your Formspree endpoint when ready. -->
+    <form class="row" action="https://formspree.io/f/your-form-id" method="POST">
+      <input type="email" name="email" placeholder="Enter your email for early access" aria-label="Email address" required />
+      <button type="submit">Notify me</button>
+    </form>
+
+    <div class="meta" aria-label="Contact options">
+      <span class="pill">Contact: <a href="mailto:hello@livelearndo.org">hello@livelearndo.org</a></span>
+      <span class="pill">Follow: <a href="#" aria-disabled="true" onclick="return false;">@LiveLearnDo</a></span>
+    </div>
+
+    <footer>
+      © <span id="y"></span> LiveLearnDo. All rights reserved.
+    </footer>
+  </main>
+
+  <script>
+    // Set current year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
