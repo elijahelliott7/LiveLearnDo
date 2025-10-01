@@ -7,7 +7,9 @@ h1.logo span:nth-child(3){color:#60a5fa;}
 a.button,button{display:inline-block;padding:12px 18px;border-radius:8px;text-decoration:none;font-weight:bold;
  background:linear-gradient(135deg,#4ade80,#60a5fa);color:#000;margin:10px 0;cursor:pointer;}
 a.button.secondary{background:none;border:1px solid #aaa;color:#eee;}
-.need{margin:15px 0;padding:10px;border:1px solid #333;border-radius:8px;}
+.need{margin:15px 0;padding:16px;border:1px solid #333;border-radius:8px;background:rgba(17,25,40,0.6);}
+.need h3{margin:0 0 0.4em;font-size:1.2em;color:#fff;}
+.need-description{margin:0 0 1em;color:#cbd5f5;line-height:1.5;}
 .scale label{margin-right:8px;cursor:pointer;}
 .notice{background:#223;padding:10px;border-radius:6px;margin-top:15px;}
 .success{background:#252;color:#afa;}
