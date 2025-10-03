@@ -241,6 +241,7 @@
 <footer>© <span id="y"></span> LiveLearnDo</footer>
 <script>
 document.getElementById('y').textContent = new Date().getFullYear();
+
 const form = document.getElementById('surveyForm');
 const result = document.getElementById('result');
 
@@ -250,10 +251,12 @@ form.addEventListener('submit', event => {
   const labels = {};
   const missing = [];
 
+  // Collect numeric ratings from the form
   new FormData(form).forEach((value, key) => {
     data[key] = Number(value);
   });
 
+  // Build a label map and check for any missing items
   form.querySelectorAll('.need').forEach(section => {
     const input = section.querySelector('input');
     const name = input.name;
@@ -263,6 +266,7 @@ form.addEventListener('submit', event => {
     }
   });
 
+  // Require all needs to be rated
   if (missing.length) {
     result.style.display = 'block';
     result.className = 'notice';
@@ -270,22 +274,28 @@ form.addEventListener('submit', event => {
     return;
   }
 
+  // Sort all needs by score (ascending: least met → most met)
   const entries = Object.entries(data)
     .map(([key, score]) => ({ key, score, label: labels[key] }))
     .sort((a, b) => a.score - b.score);
 
-  const lowest = entries.filter(entry => entry.score <= 3).slice(0, 5);
+  // Build full results list with a Resources button on the right
+  let html = '<div class="success"><strong>Results saved.</strong></div>';
+  html += '<ol style="padding-left:1.25rem;margin:0;">';
 
-  let html = '<div class="success"><strong>Summary saved.</strong></div><ol>';
-  if (!lowest.length) {
-    html += '<li>All needs rated high — great job!</li>';
-  } else {
-    lowest.forEach(entry => {
-      html += `<li>${entry.label}: ${entry.score}/5</li>`;
-    });
-  }
+  entries.forEach(entry => {
+    const needParam = encodeURIComponent(entry.key);
+    html += `
+      <li style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin:8px 0;">
+        <span>${entry.label}: ${entry.score}/5</span>
+        <a class="button secondary" href="resources.html?need=${needParam}">Resources</a>
+      </li>
+    `;
+  });
+
   html += '</ol>';
 
+  // Show results and scroll to them
   result.className = 'notice success';
   result.style.display = 'block';
   result.innerHTML = html;
