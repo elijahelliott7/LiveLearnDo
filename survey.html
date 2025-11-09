@@ -270,4 +270,68 @@
     <!-- Connection -->
     <div class="need">
       <h3>Connection</h3>
-      <p class="need-description">The need to feel emotionally bonded and close to others. Connection provides a sense of belonging and security, fostering intimacy and cooperation. When this need is met, individuals experience greater emotional well-being, reduced stress, and improved resilience. Strong social bonds enhance trust, collaboration, and even physical health, as supportive relationships have been shown to lower blood pressure, boost immunity, and increase longevi
+      <p class="need-description">The need to feel emotionally bonded and close to others. Connection provides a sense of belonging and security, fostering intimacy and cooperation. When this need is met, individuals experience greater emotional well-being, reduced stress, and improved resilience. Strong social bonds enhance trust, collaboration, and even physical health, as supportive relationships have been shown to lower blood pressure, boost immunity, and increase longevity.</p>
+      <div class="scale">
+        <label><input type="radio" name="connection" value="1">1</label>
+        <label><input type="radio" name="connection" value="2">2</label>
+        <label><input type="radio" name="connection" value="3">3</label>
+        <label><input type="radio" name="connection" value="4">4</label>
+        <label><input type="radio" name="connection" value="5">5</label>
+      </div>
+    </div>
+
+    <div style="text-align:center">
+      <button type="submit">See My Summary</button>
+      <a class="button secondary" href="index.html">Back to Home</a>
+    </div>
+  </form>
+
+  <div id="result" class="notice" style="display:none"></div>
+</div>
+
+<footer>© <span id="y"></span> LiveLearnDo</footer>
+
+<script>
+document.getElementById('y').textContent = new Date().getFullYear();
+
+/* Collapse/Expand “More info” for each need */
+document.querySelectorAll('.need').forEach(section => {
+  const p = section.querySelector('.need-description');
+  const h3 = section.querySelector('h3');
+  if (!p || !h3) return;
+
+  const text = p.textContent.trim();
+  const cut = text.indexOf('.');
+  if (cut === -1) return;
+
+  const lead = text.slice(0, cut + 1);
+  const rest = text.slice(cut + 1).trim();
+
+  p.innerHTML =
+    `<span class="lead">${lead}</span><span class="ellipsis"> …</span>` +
+    (rest ? ` <span class="more">${rest}</span>` : '');
+
+  const header = document.createElement('div');
+  header.className = 'need-header';
+  h3.parentNode.insertBefore(header, h3);
+  header.appendChild(h3);
+
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'more-toggle';
+  btn.setAttribute('aria-expanded', 'false');
+  btn.textContent = 'More info';
+  header.appendChild(btn);
+
+  section.setAttribute('aria-expanded', 'false');
+
+  btn.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    section.setAttribute('aria-expanded', String(!open));
+    btn.textContent = open ? 'More info' : 'Less';
+  });
+});
+</script>
+</body>
+</html>
