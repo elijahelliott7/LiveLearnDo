@@ -229,4 +229,16 @@ footer{
 .need-group[open] summary{border-bottom:1px solid var(--border)}
 .need-group ul{margin:16px 24px 20px;padding-left:24px;color:var(--text-secondary);line-height:1.8;font-size:1.05rem}
 .needs-status{font-size:.95rem}
+.location-panel{margin:28px auto;padding:24px;max-width:700px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md)}
+.location-panel h2{margin-top:0;font-size:1.2rem}
+.location-panel label{display:block;font-weight:700;margin-top:16px}
+.location-panel #location-privacy,.location-panel #location-hint{font-size:.9rem}
+.location-entry{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.location-entry input{flex:1 1 220px;min-width:0;width:100%;padding:14px;border:1px solid #607369;border-radius:10px;font:inherit;color:var(--text-primary);background:#fff}
+.location-panel button{font:inherit;max-width:100%;text-align:center}
+.location-panel .location-clear{background:transparent;color:#326749;box-shadow:none;border:1px solid #326749}
+.location-panel button:focus-visible,.location-entry input:focus-visible{outline:3px solid #284034;outline-offset:3px}
+.location-error{color:#8b2929;font-weight:600}
+.location-error:empty{display:none}
+#location-status{overflow-wrap:anywhere}
 @media(max-width:640px){.need-group summary{padding:18px}.need-group ul{margin-left:18px;margin-right:18px}}

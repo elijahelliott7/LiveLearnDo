@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Choose your path | Live Learn Do</title>
-<link rel="stylesheet" href="styles.css?v=20261028-paths">
+<link rel="stylesheet" href="styles.css?v=20261028-location">
+<script src="location.js" defer></script>
 </head>
 <body>
 <main class="container intro-page path-page">
@@ -14,6 +15,24 @@
     <p>Choose the path that feels right for you. You can switch paths at any time.</p>
     <p>We’re building two ways to explore your needs: guided questions to help you reflect, or a way to choose needs you already recognize. Both paths are intended to lead to local resources.</p>
   </div>
+  <section class="location-panel" aria-labelledby="location-title">
+    <h2 id="location-title">Your location (optional)</h2>
+    <p>Share a location or enter a city or ZIP code. You can choose either path below without doing this.</p>
+    <p id="location-privacy">Location stays only in this page’s memory. It is not sent anywhere or saved, and clears when you leave or reload this page. Local resource connections are still being built; no nearby results are available yet.</p>
+    <button id="use-location" type="button" aria-describedby="location-privacy">Use my location</button>
+    <form id="location-form" novalidate>
+      <label for="manual-location">Or enter a city or ZIP code</label>
+      <p id="location-hint">For a city, you may add a state or region. ZIP codes should have 5 digits, with an optional 4-digit extension.</p>
+      <div class="location-entry">
+        <input id="manual-location" name="location" type="text" maxlength="100" autocomplete="off" aria-describedby="location-hint location-error">
+        <button type="submit">Use this location</button>
+      </div>
+      <p id="location-error" class="location-error" role="alert"></p>
+    </form>
+    <p id="location-status" role="status" aria-live="polite" aria-atomic="true">No location chosen.</p>
+    <button id="clear-location" type="button" class="location-clear">Clear location</button>
+    <noscript><p>Location controls need JavaScript. You can still use either path below.</p></noscript>
+  </section>
   <nav class="path-options" aria-label="Choose how to explore your needs">
     <a class="path-card" href="explore-needs.html">
       <h2>Help me figure out my needs</h2>

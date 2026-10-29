@@ -6,7 +6,17 @@ Updated October 28, 2026.
 
 The user's mission is inspired by Abraham Maslow's human motivation theory: help people understand their needs, then find local resources to meet them. The initial audience is people experiencing homelessness. Geographic scope remains undecided. These are planning decisions, not new public mission copy. Resource listings are outside this update.
 
-## Current known-needs groups
+## Optional location on the choice page
+
+The user approved adding optional location to the second page. Use my location calls browser geolocation only after an explicit click. The browser controls permission and device location settings are never changed. Denied, unavailable, timeout, unknown-error, and unsupported states offer city/ZIP entry or continuing without location.
+
+Manual entry has a label, format guidance, inline error, validation, editing, and clear control. It accepts a city (optionally with state/region) or a US ZIP/ZIP+4; this is syntax checking, not geocoding or verifying the place. Both exploration paths remain available without a location. No resource matching is claimed.
+
+Precise coordinates or entered place stay only in a closure on this page. There is no external request, logging, URL encoding, browser storage, or retention across paths. Clear discards state and ignores late permission callbacks. Page-exit cleanup also clears state for browser back/forward cache restoration. Visitors receive this notice before sharing location. The browser may retain its own permission choice; clearing the page does not revoke browser permission.
+
+Local simulated tests in check-location.cjs pass for success, all error codes, unsupported browsers, valid/invalid entry, no permission on load, stale callbacks after clear, and page-exit reset. No actual user location was requested for testing. Browser controls do not expose geolocation simulation, so permission-state simulation uses a local test harness rather than real permission prompts.
+
+## Earlier known-needs groups
 
 The user chose to develop the known-needs path first, organized around Maslow, to inform the later guided path. Each group opens its approved initial list on the same page:
 
