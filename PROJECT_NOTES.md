@@ -6,7 +6,19 @@ Updated October 28, 2026.
 
 The user's mission is inspired by Abraham Maslow's human motivation theory: help people understand their needs, then find local resources to meet them. The initial audience is people experiencing homelessness. Geographic scope remains undecided. These are planning decisions, not new public mission copy. Resource listings are outside this update.
 
-## Page structure and learning notes
+## Current two-path structure
+
+The user authorized building and publishing a choice page on October 28, 2026. This supersedes the earlier disabled Learn More state.
+
+- Home Learn More now links to `choose-path.html`.
+- Two equally visible choices lead to separate `explore-needs.html` and `known-needs.html` pages. On mobile, the cards stack in the same reading order.
+- Each starting page offers a reflection prompt and navigation to switch paths, return to choices, or go home. No responses are collected.
+- Guided questions, need categories, service area, and resource data remain undefined. The pages describe these as future features; no questionnaire, scoring, or resource listings were invented.
+- Existing homepage mission wording, survey behavior, and domain files remain unchanged.
+- Semantic link cards provide one keyboard focus stop per choice; visible focus outlines and readable contrast support navigation. Shared CSS retains the homepage visual theme. Stylesheet versioning refreshes cached styles.
+- Source checks passed for all local links (including versioned CSS), unique main headings, viewport metadata, and the homepage route. Public desktop/mobile checks follow publication.
+
+## Earlier page structure and learning notes
 
 - `index.html` introduces Live Learn Do with the existing Who We Are and Our Vision wording and a Learn More button. The button is temporarily disabled pending the decision-tree design.
 - Updated user direction: Learn More must open a question-based decision tree. The first question, choices, and branches are not yet specified. Do not invent these.
