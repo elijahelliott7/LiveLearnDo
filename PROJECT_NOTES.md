@@ -6,7 +6,19 @@ Updated October 28, 2026.
 
 The user's mission is inspired by Abraham Maslow's human motivation theory: help people understand their needs, then find local resources to meet them. The initial audience is people experiencing homelessness. Geographic scope remains undecided. These are planning decisions, not new public mission copy. Resource listings are outside this update.
 
-## Current two-path structure
+## Current known-needs groups
+
+The user chose to develop the known-needs path first, organized around Maslow, to inform the later guided path. Each group opens its approved initial list on the same page:
+
+- Basic needs: food, water, rest, shelter.
+- Safety and stability: personal safety, health, financial security.
+- Connection and belonging: relationships, community.
+- Confidence and respect: self-worth, recognition, achievement.
+- Growth and purpose: learning, creativity, personal goals.
+
+Native HTML details/summary disclosures support keyboard and touch without added scripts. Several may stay open at once, and visitors may start anywhere; the hierarchy is not a required sequence. These are informational categories for reflection, not a clinical assessment. Lists do not pretend to select or match resources. Detailed need/resource navigation, geographic scope, and resource providers remain undefined. Existing switch-path/back navigation remains.
+
+## Earlier two-path structure
 
 The user authorized building and publishing a choice page on October 28, 2026. This supersedes the earlier disabled Learn More state.
 

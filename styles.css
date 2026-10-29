@@ -217,3 +217,16 @@ footer{
 .path-page .intro-actions a{max-width:100%;text-align:center}
 @media(max-width:640px){.brand{font-size:2.4em;flex-direction:column;gap:.2em}.path-options{grid-template-columns:1fr;gap:18px}.path-card{padding:24px}.page-title{font-size:1.5rem}}
 @media(prefers-reduced-motion:reduce){.intro-page a.button{transition:none;transform:none}}
+
+/* Native disclosures work with keyboard, touch, and without JavaScript. */
+.need-groups{max-width:700px;margin:28px auto}
+.need-groups > h2{font-size:1.3rem;margin:0}
+.need-group{margin:16px 0;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--surface);box-shadow:0 10px 25px rgba(40,64,52,.08);overflow:hidden}
+.need-group summary{padding:20px 24px;font-size:1.1rem;font-weight:700;cursor:pointer;color:var(--text-primary)}
+.need-group summary::marker{color:#326749}
+.need-group summary:hover{background:var(--surface-strong)}
+.need-group summary:focus-visible{outline:3px solid #284034;outline-offset:-4px;border-radius:var(--radius-md)}
+.need-group[open] summary{border-bottom:1px solid var(--border)}
+.need-group ul{margin:16px 24px 20px;padding-left:24px;color:var(--text-secondary);line-height:1.8;font-size:1.05rem}
+.needs-status{font-size:.95rem}
+@media(max-width:640px){.need-group summary{padding:18px}.need-group ul{margin-left:18px;margin-right:18px}}
