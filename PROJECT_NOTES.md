@@ -26,4 +26,4 @@ The existing GitHub Pages setup serves `main` from the repository root with `CNA
 
 ## Validation
 
-Source checks verify unchanged mission paragraphs, unchanged survey and domain configuration, valid local file references, and clean whitespace. The existing responsive logo and container rules remain; new navigation wraps on narrow screens. Browser/mobile rendering and keyboard interaction have not yet been tested. Complete these after the decision-tree flow is specified.
+Source checks verify unchanged mission paragraphs, unchanged survey and domain configuration, valid local file references, and clean whitespace. Public homepage verification confirmed the new content and disabled button. Mobile inspection at 390 by 844 confirmed readable wrapped text and no horizontal overflow. A stylesheet version query prevents older cached CSS from obscuring the approved styling. The existing responsive logo and container rules remain; new navigation wraps on narrow screens.
