@@ -1,0 +1,28 @@
+.need-info-link{
+  display:inline-block;
+  margin-inline-start:.75rem;
+  padding-inline:.2rem;
+  color:var(--action);
+  font-weight:600;
+  text-underline-offset:.15em;
+}
+.need-info-link:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+@media (hover:hover) and (pointer:fine){
+  .need-info-link{opacity:0;pointer-events:none}
+  .need-group li:hover .need-info-link,.need-group li:focus-within .need-info-link{
+    opacity:1;
+    pointer-events:auto;
+  }
+}
+.need-article{
+  max-width:700px;
+  margin:24px auto;
+  padding:clamp(16px,4vw,28px);
+  border:1px solid var(--border);
+  border-radius:var(--radius-md);
+  background:var(--surface);
+}
+.need-article h2{margin:1.4em 0 .35em;font-size:1.2rem}
+.need-article p{color:var(--text-secondary);line-height:1.65}
+.need-article p:first-child{margin-top:0}
+.need-article p:last-child{margin-bottom:0}
